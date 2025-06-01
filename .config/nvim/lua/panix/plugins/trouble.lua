@@ -22,13 +22,13 @@ return {
 				},
 			})
 
-			vim.keymap.set("n", "<leader>tt", "<cmd>Trouble diagnostics toggle<cr>")
+			vim.keymap.set("n", "<leader>t", "<cmd>Trouble diagnostics toggle<cr>")
 
-			vim.keymap.set("n", "[t", function()
+			vim.keymap.set("n", "<C-k>", function()
 				require("trouble").next({ skip_groups = true, jump = true })
 			end)
 
-			vim.keymap.set("n", "]t", function()
+			vim.keymap.set("n", "<C-j>", function()
 				require("trouble").prev({ skip_groups = true, jump = true })
 			end)
 		end,
