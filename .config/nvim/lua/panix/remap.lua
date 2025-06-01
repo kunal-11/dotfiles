@@ -4,7 +4,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.opt.incsearch = true
 
 -- File Explorer
-vim.keymap.set({ "n", "v", "i" }, "<leader>e", "<cmd>Ex<CR>")
+vim.keymap.set({ "n", "v" }, "<leader>e", "<cmd>Ex<CR>")
 
 -- Quick Fix List
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
@@ -15,6 +15,9 @@ vim.keymap.set({ "v", "n" }, "<leader>y", '"+y')
 -- Delete without yanking
 vim.keymap.set({ "n", "v" }, "<leader>p", '"_dP')
 vim.keymap.set({ "n", "v" }, "<leader>d", '"_dD')
+
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
 
 vim.o.number = true
 vim.opt.relativenumber = true
