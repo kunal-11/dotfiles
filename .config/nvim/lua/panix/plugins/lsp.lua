@@ -26,7 +26,7 @@ return {
 				vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 				vim.keymap.set({ "v", "n" }, "gr", require("telescope.builtin").lsp_references, opts)
 				vim.keymap.set({ "v", "n" }, "gi", require("telescope.builtin").lsp_implementations, opts)
-				vim.keymap.set("n", "gD", function()
+				vim.keymap.set("n", "<leader>vd", function()
 					vim.diagnostic.open_float()
 				end, opts)
 			end,
@@ -57,7 +57,6 @@ return {
 			virtual_text = true,
 			float = {
 				focusable = false,
-				style = "minimal",
 				border = "rounded",
 				source = true,
 				header = "",

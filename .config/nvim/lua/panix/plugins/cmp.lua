@@ -5,8 +5,7 @@ return {
 		signature = { enabled = true },
 
 		completion = {
-			ghost_text = { enabled = true, show_with_menu = false },
-			menu = { auto_show = false },
+			ghost_text = { enabled = true, show_with_menu = true },
 		},
 		sources = {
 			default = { "lazydev", "lsp", "path", "snippets", "buffer" },
@@ -18,8 +17,6 @@ return {
 				},
 			},
 		},
-
-		-- See the fuzzy documentation for more information
 		fuzzy = { implementation = "lua" },
 	},
 	opts_extend = { "sources.default" },

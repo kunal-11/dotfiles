@@ -21,6 +21,7 @@ vim.opt.cursorlineopt = "number"
 
 vim.o.number = true
 vim.opt.relativenumber = true
+vim.opt.signcolumn = "yes"
 
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
