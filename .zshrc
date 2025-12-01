@@ -18,3 +18,4 @@ export LANG=en_IN.UTF-8
 
 XDG_CONFIG_HOME="$HOME/.config"
 
+export PATH=$PATH:~/libs/zig
