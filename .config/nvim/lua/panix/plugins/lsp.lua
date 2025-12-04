@@ -11,7 +11,7 @@ return {
 			},
 		},
 		{ "mason-org/mason.nvim", opts = {} },
-		{ "j-hui/fidget.nvim", opts = {} },
+		{ "j-hui/fidget.nvim",    opts = {} },
 		"mason-org/mason-lspconfig.nvim",
 		"saghen/blink.cmp",
 	},
@@ -23,7 +23,7 @@ return {
 				local opts = { buffer = e.buf }
 
 				vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-				vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+				vim.keymap.set("n", "K", function() vim.lsp.buf.hover({ border = "rounded" }) end, opts)
 				vim.keymap.set({ "v", "n" }, "gr", require("telescope.builtin").lsp_references, opts)
 				vim.keymap.set({ "v", "n" }, "gi", require("telescope.builtin").lsp_implementations, opts)
 				vim.keymap.set("n", "<leader>d", function()
@@ -40,6 +40,8 @@ return {
 			require("blink.cmp").get_lsp_capabilities()
 		)
 
+		local lspconfig = require("lspconfig")
+
 		require("mason-lspconfig").setup({
 			automatic_enable = true,
 			ensure_installed = {
@@ -48,10 +50,24 @@ return {
 			},
 			handlers = {
 				function(server_name)
-					require("lspconfig")[server_name].setup({ capabilities = capabilities })
+					lspconfig[server_name].setup({ capabilities = capabilities })
 				end,
 			},
 		})
+
+		-- Zig LPS latest built from source
+		vim.lsp.config.zls = {
+			cmd = { "/Users/panix/libs/zls/zig-out/bin/zls" },
+			filetypes = { "zig", "zir" },
+			root_markers = { 'build.zig', '.git' },
+			settings = {
+				zls = {
+					enable_build_on_save = true,
+					semantic_tokens = "partial",
+				}
+			},
+		}
+		vim.lsp.enable('zls')
 
 		vim.diagnostic.config({
 			virtual_text = true,
