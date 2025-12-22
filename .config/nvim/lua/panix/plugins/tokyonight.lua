@@ -9,6 +9,8 @@ return {
 				sidebars = "transparent",
 				floats = "transparent",
 			},
+			dim_inactive = true,
+			style = "night"
 		})
 		vim.cmd.colorscheme("tokyonight")
 	end,

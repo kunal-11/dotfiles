@@ -62,10 +62,9 @@ return {
 			root_markers = { 'build.zig', '.git' },
 			settings = {
 				zls = {
-					enable_build_on_save = true,
 					semantic_tokens = "partial",
-				}
-			},
+				},
+			}
 		}
 		vim.lsp.enable('zls')
 
