@@ -18,8 +18,5 @@ export LANG=en_IN.UTF-8
 
 XDG_CONFIG_HOME="$HOME/.config"
 
-<<<<<<< Updated upstream
 export PATH=$PATH:~/libs/zig
-=======
 export PATH="$PATH:$HOME/go/bin"
->>>>>>> Stashed changes
