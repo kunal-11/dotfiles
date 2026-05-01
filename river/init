@@ -1,0 +1,15 @@
+#!/bin/fish
+
+set -x ELECTRON_OZONE_PLATFORM_HINT auto
+set -x MOZ_DISABLE_RDD_SANDBOX 1
+set -x NVD_BACKEND direct
+set -x LIBVA_DRIVER_NAME nvidia
+set -x XDG_SESSION_TYPE wayland
+set -x __GLX_VENDOR_LIBRARY_NAME nvidia
+set -x GBM_BACKEND nvidia-drm
+
+kanshi &
+pipewire &
+pipewire-pulse &
+wireplumber &
+canoe

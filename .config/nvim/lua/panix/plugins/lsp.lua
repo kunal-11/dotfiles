@@ -13,7 +13,7 @@ return {
 		{ "mason-org/mason.nvim", opts = {} },
 		{ "j-hui/fidget.nvim", opts = {} },
 		"mason-org/mason-lspconfig.nvim",
-		"saghen/blink.cmp",
+		{ "saghen/blink.cmp", version = "1.*" },
 	},
 
 	config = function()
@@ -47,8 +47,6 @@ return {
 		require("mason-lspconfig").setup({
 			automatic_enable = true,
 			ensure_installed = {
-				"lua_ls",
-				"gopls",
 			},
 			handlers = {
 				function(server_name)
