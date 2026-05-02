@@ -18,7 +18,8 @@ pipewire-pulse &
 wireplumber &
 sleep 2
 
+wl-clip-persist --clipboard regular &
 kanshi &
 waybar &
-
-exec dbus-run-session rill
+fish /home/panix/.config/river/wallpaper.fish &
+rill

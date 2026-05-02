@@ -2,8 +2,8 @@
   font-family: 'Segoe UI, NotoSans Nerd Font', sans-serif;
   font-size: 13px;
   min-height: 0;
-  padding-right: 0px;
-  padding-left: 0px;
+  padding-right: 4px;
+  padding-left: 4px;
   padding-bottom: 0px;
 }
 
@@ -13,27 +13,6 @@
   color: #c6d0f5;
   margin: 0px;
   font-weight: 500;
-}
-
-#cpu,
-#memory {
-  background-color: #1a1b26;
-  padding: 0.3rem 0.7rem;
-  margin: 5px 0px; /* 5px top/bottom margin, 0px left/right (base for individual control) */
-  border-radius: 6px; /* These modules are always rounded */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  min-width: 0;
-  border: none;
-  /* Transition for background-color and color only */
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-}
-#cpu:hover,
-#memory:hover {
-  background-color: rgb(41, 42, 53); /* Brighter highlight */
-}
-
-#memory {
-	margin-left: 5px;
 }
 
 #clock {
@@ -50,7 +29,9 @@
   background-color: rgba(153, 209, 219, 0.1); /* Brighter highlight */
 }
 
-
+#mpris,
+#cpu,
+#memory,
 #bluetooth,
 #pulseaudio,
 #network,
@@ -65,6 +46,19 @@
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
+#cpu,
+#mpris {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+#memory,
+#battery {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+#mpris,
 #pulseaudio {
   color: #c6d0f5;
 }
@@ -77,13 +71,7 @@
 }
 
 #bluetooth {
-  margin-left: 0px; 
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
-}
-#bluetooth {
   color: #888888;
-  font-size: 16px;
 }
 #bluetooth.on {
   color: #2196f3;
@@ -93,12 +81,7 @@
 }
 
 #battery {
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-  margin-right: 7px;
-}
-#battery {
-  color: #99d1db;;
+  color: #99d1db;
 }
 #battery.charging {
   color: #a6d189;
@@ -107,6 +90,9 @@
   color: #e78284;
 }
 
+#mpris:hover,
+#cpu:hover,
+#memory:hover,
 #bluetooth:hover,
 #pulseaudio:hover,
 #network:hover,

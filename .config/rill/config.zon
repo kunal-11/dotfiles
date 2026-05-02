@@ -1,8 +1,8 @@
 .{
     // Gap between windows and the output's top/bottom edge
-    .vertical_gap = 9,
+    .vertical_gap = 8,
     // Gap between adjacent windows
-    .horizontal_gap = 9,
+    .horizontal_gap = 8,
     // Default proportion of the output's available width that a window occupies when spawned
     .default_window_width = 0.5,
 
@@ -109,6 +109,32 @@
             .action = .{ .spawn = .{"fuzzel"} },
         },
 
+        .{
+            .key = "p",
+            .modifiers = .{ .mod4 = true },
+            .action = .{ .spawn = .{ "sh", "-c", "grim ~/screenshots/$(date +%Y%m%d_%H%M%S).png" } },
+        },
+        .{
+            .key = "p",
+            .modifiers = .{ .mod4 = true, .shift = true },
+            .action = .{ .spawn = .{ "sh", "-c", "grim -g \"$(slurp)\" ~/screenshots/$(date +%Y%m%d_%H%M%S).png" } },
+        },
+
+        .{
+            .key = "XF86AudioPlay",
+            .modifiers = .{},
+            .action = .{ .spawn = .{ "playerctl", "play-pause" } },
+        },
+        .{
+            .key = "XF86AudioNext",
+            .modifiers = .{},
+            .action = .{ .spawn = .{ "playerctl", "next" } },
+        },
+        .{
+            .key = "XF86AudioPrev",
+            .modifiers = .{},
+            .action = .{ .spawn = .{ "playerctl", "previous" } },
+        },
         .{
             .key = "XF86AudioRaiseVolume",
             .modifiers = .{},
