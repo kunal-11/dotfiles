@@ -1,8 +1,6 @@
 if status is-interactive
-    # Commands to run in interactive sessions can go here
 end
 
-starship init fish | source
+alias bt=bluetoothctl
 
-fish_add_path ~/.cargo/bin
-fish_add_path ~/libs/zig
+starship init fish | source

@@ -2,14 +2,23 @@
 
 set -x ELECTRON_OZONE_PLATFORM_HINT auto
 set -x MOZ_DISABLE_RDD_SANDBOX 1
+set -x MOZ_ENABLE_WAYLAND 1
+
+set -x XDG_CURRENT_DESKTOP river
+set -x XDG_SESSION_TYPE wayland
+
+set -x __EGL_VENDOR_LIBRARY_FILENAMES /usr/share/glvnd/egl_vendor.d/10_nvidia.json
 set -x NVD_BACKEND direct
 set -x LIBVA_DRIVER_NAME nvidia
-set -x XDG_SESSION_TYPE wayland
 set -x __GLX_VENDOR_LIBRARY_NAME nvidia
 set -x GBM_BACKEND nvidia-drm
 
-kanshi &
 pipewire &
 pipewire-pulse &
 wireplumber &
-canoe
+sleep 2
+
+kanshi &
+waybar &
+
+exec dbus-run-session rill
