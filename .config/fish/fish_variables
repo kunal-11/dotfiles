@@ -1,4 +1,4 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR __fish_initialized:4300
-SETUVAR fish_user_paths:\x1e/home/panix/bin\x1e/home/panix/libs/zen
+SETUVAR fish_user_paths:/home/panix/libs/heroic\x2d2\x2e21\x2e0\x1e/home/panix/bin\x1e/home/panix/libs/zen

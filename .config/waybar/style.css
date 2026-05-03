@@ -7,7 +7,6 @@
   padding-bottom: 0px;
 }
 
-/* --- Waybar Container --- */
 #waybar {
   background: transparent;
   color: #c6d0f5;
@@ -15,20 +14,8 @@
   font-weight: 500;
 }
 
-#clock {
-  background-color: #1a1b26;
-  padding: 0.3rem 0.7rem;
-  margin: 5px 0px;
-  border-radius: 6px; /* This module is always rounded */
-  box-shadow: 0 1px 3px rgba(153, 209, 219, 0.2);
-  min-width: 0;
-  border: none;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-}
-#clock:hover {
-  background-color: rgba(153, 209, 219, 0.1); /* Brighter highlight */
-}
-
+#temperature,
+#clock,
 #mpris,
 #cpu,
 #memory,
@@ -46,8 +33,25 @@
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
+#temperature:hover,
+#clock:hover,
+#mpris:hover,
+#cpu:hover,
+#memory:hover,
+#bluetooth:hover,
+#pulseaudio:hover,
+#network:hover,
+#battery:hover {
+  background-color: rgb(41, 42, 53);
+}
+
+#clock {
+  border-radius: 6px; /* This module is always rounded */
+  box-shadow: 0 1px 3px rgba(153, 209, 219, 0.2);
+}
+
 #cpu,
-#mpris {
+#bluetooth {
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
 }
@@ -56,11 +60,6 @@
 #battery {
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
-}
-
-#mpris,
-#pulseaudio {
-  color: #c6d0f5;
 }
 
 #network {
@@ -90,22 +89,9 @@
   color: #e78284;
 }
 
-#mpris:hover,
-#cpu:hover,
-#memory:hover,
-#bluetooth:hover,
-#pulseaudio:hover,
-#network:hover,
-#battery:hover {
-  background-color: rgb(41, 42, 53);
-}
-
-/* --- Tooltip Styles --- */
 tooltip {
   background-color: #1a1b26;
   color: #dddddd;
-  padding: 5px 12px;
-  margin: 5px 0px;
   border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
