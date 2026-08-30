@@ -1,108 +1,36 @@
 return {
-	{
-		"mfussenegger/nvim-dap",
-		lazy = true,
-		keys = {
-			{
-				"<leader>db",
-				function()
-					require("dap").toggle_breakpoint()
-				end,
-				desc = "Toggle Breakpoint",
-			},
-
-			{
-				"<leader>dc",
-				function()
-					require("dap").continue()
-				end,
-				desc = "Continue",
-			},
-
-			{
-				"<leader>dC",
-				function()
-					require("dap").run_to_cursor()
-				end,
-				desc = "Run to Cursor",
-			},
-
-			{
-				"<leader>dT",
-				function()
-					require("dap").terminate()
-				end,
-				desc = "Terminate",
-			},
-			{
-				"<leader>dn",
-				function()
-					require("dap").step_over()
-				end,
-			},
-		},
-		dependencies = {
-			{
-				"igorlfs/nvim-dap-view",
-				-- Alternative UI.  https://igorlfs.github.io/nvim-dap-view/keymaps
-				-- Load with :DapViewOpen
-				-- Use g? in windows to see keymaps.
-				---@module 'dap-view'
-				opts = {},
-			},
-		},
+	"mfussenegger/nvim-dap",
+	dependencies = {
+		"williamboman/mason.nvim",
 	},
-	{
-		"rcarriga/nvim-dap-ui",
-		config = true,
-		keys = {
-			{
-				"<leader>du",
-				function()
-					require("dapui").toggle({})
-				end,
-				desc = "Dap UI",
+	config = function()
+		local dap = require("dap")
+
+		dap.adapters.codelldb = {
+			type = "server",
+			port = "${port}",
+			executable = {
+				command = vim.fn.stdpath("data") .. "/mason/bin/codelldb",
+				args = { "--port", "${port}" },
 			},
-		},
-		dependencies = {
+		}
+
+		dap.configurations.zig = {
 			{
-				"jay-babu/mason-nvim-dap.nvim",
-				opts = {
-					handlers = {},
-					automatic_installation = false,
-					ensure_installed = {},
-				},
-				dependencies = {
-					"mfussenegger/nvim-dap",
-					"mason-org/mason.nvim",
-				},
+				name = "Attach to process",
+				type = "codelldb",
+				request = "attach",
+				pid = require("dap.utils").pick_process,
+				cwd = "${workspaceFolder}",
 			},
-			{
-				"leoluz/nvim-dap-go",
-				config = true,
-				dependencies = {
-					"mfussenegger/nvim-dap",
-				},
-				keys = {
-					{
-						"<leader>dt",
-						function()
-							require("dap-go").debug_test()
-						end,
-						desc = "Debug test",
-					},
-				},
-			},
-			{
-				"theHamsta/nvim-dap-virtual-text",
-				config = true,
-				dependencies = {
-					"mfussenegger/nvim-dap",
-				},
-			},
-			{
-				"nvim-neotest/nvim-nio",
-			},
-		},
+		}
+	end,
+	keys = {
+		{ "<leader>dc", function() require("dap").continue() end,          desc = "Debug: Continue/Attach" },
+		{ "<leader>dt", function() require("dap").terminate() end,         desc = "Debug: Terminate" },
+		{ "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Debug: Toggle Breakpoint" },
+		{ "<leader>do", function() require("dap").step_over() end,         desc = "Debug: Step Over" },
+		{ "<leader>di", function() require("dap").step_into() end,         desc = "Debug: Step Into" },
+		{ "<leader>dO", function() require("dap").step_out() end,          desc = "Debug: Step Out" },
 	},
 }

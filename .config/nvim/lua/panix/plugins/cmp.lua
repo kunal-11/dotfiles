@@ -1,7 +1,7 @@
 return {
 	"saghen/blink.cmp",
 	opts = {
-		keymap = { preset = "super-tab" },
+		keymap = { preset = "default" },
 		signature = { enabled = true },
 
 		completion = {

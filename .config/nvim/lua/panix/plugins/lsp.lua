@@ -11,7 +11,7 @@ return {
 			},
 		},
 		{ "mason-org/mason.nvim", opts = {} },
-		{ "j-hui/fidget.nvim", opts = {} },
+		{ "j-hui/fidget.nvim",    opts = {} },
 		"mason-org/mason-lspconfig.nvim",
 		{ "saghen/blink.cmp", version = "1.*" },
 	},
@@ -43,7 +43,6 @@ return {
 		)
 
 		local lspconfig = require("lspconfig")
-
 		require("mason-lspconfig").setup({
 			automatic_enable = true,
 			ensure_installed = {
@@ -60,22 +59,19 @@ return {
 			settings = {
 				zls = {
 					enable_build_on_save = true,
+					enable_argument_placeholders = false,
 				},
 			},
 		})
 
-		-- Zig LPS latest built from source
-		-- vim.lsp.config.zls = {
-		-- 	cmd = { "/home/panix/libs/zls/zig-out/bin/zls" },
-		-- 	filetypes = { "zig", "zir" },
-		-- 	root_markers = { "build.zig", ".git" },
-		-- 	settings = {
-		-- 		zls = {
-		-- 			semantic_tokens = "partial",
-		-- 		},
-		-- 	},
-		-- }
-		-- vim.lsp.enable("zls")
+		vim.lsp.config("glsl_analyzer", {
+			cmd = { "glsl_analyzer" },
+			capabilities = capabilities,
+			settings = {
+				glsl_analyzer = {}
+			}
+		})
+		vim.lsp.enable("glsl_analyzer")
 
 		vim.diagnostic.config({
 			virtual_text = true,

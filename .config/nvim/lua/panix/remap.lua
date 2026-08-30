@@ -47,6 +47,8 @@ vim.opt.foldcolumn = "0"
 vim.opt.foldnestmax = 4
 vim.opt.foldlevel = 99
 
+vim.opt.colorcolumn = "101"
+
 -- Highlight when yanking text
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking text",
