@@ -1,10 +1,11 @@
 * {
-  font-family: 'Segoe UI, NotoSans Nerd Font', sans-serif;
+  font-family: 'JetBrainsMono Nerd Font', sans-serif;
   font-size: 13px;
   min-height: 0;
   padding-right: 4px;
   padding-left: 4px;
   padding-bottom: 0px;
+  padding-top: 0px;
 }
 
 #waybar {
@@ -22,7 +23,8 @@
 #bluetooth,
 #pulseaudio,
 #network,
-#battery {
+#battery,
+#workspaces{
   background-color: #1a1b26;
   padding: 0.3rem 0.7rem;
   margin: 5px 0px; 
@@ -41,10 +43,11 @@
 #bluetooth:hover,
 #pulseaudio:hover,
 #network:hover,
-#battery:hover {
+#battery:hover{
   background-color: rgb(41, 42, 53);
 }
 
+#workspaces,
 #clock {
   border-radius: 6px; /* This module is always rounded */
   box-shadow: 0 1px 3px rgba(153, 209, 219, 0.2);
@@ -52,6 +55,7 @@
 
 #cpu,
 #bluetooth {
+  margin-left: 6px;
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
 }
@@ -87,6 +91,27 @@
 }
 #battery.warning:not(.charging) {
   color: #e78284;
+}
+
+#workspaces button {
+  color: #c6d0f5;
+  background-color: transparent;
+  border: none;
+  padding: 0 6px;
+}
+
+#workspaces button.focused {
+  color: #99d1db;
+  background-color: rgb(41, 42, 128);
+  border-radius: 6px;
+}
+
+#workspaces button.urgent {
+  color: #e78284;
+}
+
+#workspaces button:hover {
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 tooltip {
