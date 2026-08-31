@@ -11,8 +11,12 @@ set $menu fuzzel
 exec ~/.config/sway/wallpaper.sh
 exec waybar
 
+
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP SWAY_SOCK
 exec systemctl --user start xdg-desktop-portal xdg-desktop-portal-gtk
+
+exec gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+exec gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 
 gaps inner 8
 
